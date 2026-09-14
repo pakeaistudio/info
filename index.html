@@ -2,7 +2,7 @@
 <html lang="id">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>pakeAIstudio</title>
     <style>
         /* Ambil Font Plus Jakarta Sans dari Google Fonts */
@@ -16,6 +16,12 @@
             font-family: 'Plus Jakarta Sans', sans-serif;
         }
 
+        html, body {
+            width: 100%;
+            max-width: 100%;
+            overflow-x: hidden; 
+        }
+
         body {
             background: radial-gradient(circle at center, #0a0b10 0%, #030406 100%);
             color: #00ffcc;
@@ -23,8 +29,7 @@
             align-items: center;
             justify-content: center;
             min-height: 100vh;
-            padding: 24px;
-            overflow-x: hidden;    
+            padding: 20px 16px;
             position: relative;
         }
 
@@ -32,8 +37,10 @@
         body::before {
             content: "";
             position: absolute;
-            width: 200%;
-            height: 200%;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
             background-image: 
                 linear-gradient(rgba(0, 255, 204, 0.03) 1px, transparent 1px),
                 linear-gradient(90deg, rgba(0, 255, 204, 0.03) 1px, transparent 1px);
@@ -41,11 +48,12 @@
             background-position: center;
             animation: gridMove 20s linear infinite;
             z-index: 1;
+            pointer-events: none;
         }
 
         @keyframes gridMove {
-            0% { transform: translate(-25%, -25%) rotate(0deg); }
-            100% { transform: translate(-25%, -25%) rotate(5deg); }
+            0% { transform: translate(0, 0); }
+            100% { transform: translate(0, 40px); }
         }
 
         /* Container Utama dengan Sudut Asimetris */
@@ -53,22 +61,22 @@
             position: relative;
             z-index: 2;
             width: 100%;
-            max-width: 440px;
+            max-width: 400px;
             background: rgba(10, 14, 23, 0.75);
             backdrop-filter: blur(12px);
             -webkit-backdrop-filter: blur(12px);
             border: 2px solid #6278ad;
             border-radius: 24px 0px 24px 0px; 
-            padding: 40px 30px;
+            padding: 35px 20px;
             box-shadow: 0 0 30px rgba(98, 120, 173, 0.15), inset 0 0 15px rgba(98, 120, 173, 0.05);
+            box-sizing: border-box;
         }
 
-        /* Efek Ornamen Sudut ala Sci-Fi HUD */
         .portal-wrapper::after {
             content: "PORTAL ACTIVE";
             position: absolute;
             top: -12px;
-            right: 25px;
+            right: 20px;
             background: #6278ad;
             color: #ffffff;
             font-size: 9px;
@@ -78,22 +86,20 @@
             border-radius: 3px;
         }
 
-        /* Profile Header: Berubah Menjadi Baris Kiri-Kanan */
+        /* Profile Header */
         .profile-area {
             display: flex;
             align-items: center;
-            gap: 20px;
-            margin-bottom: 35px;
-            text-align: left; /* Teks rata kiri agar rapi dengan logo */
+            gap: 16px;
+            margin-bottom: 30px;
+            text-align: left;
         }
 
-        /* Logo Area di Sebelah Kiri */
         .avatar-glow {
-            width: 80px;
-            height: 80px;
+            width: 70px;
+            height: 70px;
             border-radius: 50%;
             flex-shrink: 0;
-            margin: 0; /* Menghapus margin otomatis bawaan sebelumnya */
             background: none;
             box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5); 
         }
@@ -106,31 +112,32 @@
             background: #111;
         }
 
-        /* Container Teks Profile di Sebelah Kanan */
         .profile-info {
             display: flex;
             flex-direction: column;
             gap: 4px;
+            min-width: 0;
         }
 
         h1 {
-            font-size: 24px;
+            font-size: 20px;
             font-weight: 800;
             letter-spacing: 1px;
             text-transform: uppercase;
             color: #ffffff;
             text-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
             line-height: 1.2;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
         }
 
-        /* Deskripsi di Bawah Title Brand */
         .status-tag {
             display: flex;
             align-items: flex-start;
             gap: 6px;
             font-size: 11px;
             color: #a4b3d6;
-            text-transform: none; /* Mengubah kapital menjadi normal agar mudah dibaca */
             letter-spacing: 0.5px;
             font-weight: 500;
             line-height: 1.4;
@@ -141,8 +148,8 @@
             height: 6px;
             background-color: #ff007f;
             border-radius: 50%;
-            box-shrink: 0;
-            margin-top: 4px; /* Penyelarasan vertikal titik dengan baris pertama teks */
+            flex-shrink: 0;
+            margin-top: 5px;
             box-shadow: 0 0 8px #ff007f;
             animation: pulse 1.5s infinite;
         }
@@ -157,62 +164,64 @@
         .cyber-link {
             display: flex;
             align-items: center;
-            gap: 15px;
+            gap: 12px;
             background: rgba(255, 255, 255, 0.03);
             border: 1px solid #6278ad;
-            padding: 16px 18px;
-            margin: 16px 0;
+            padding: 14px 16px;
+            margin: 12px 0;
             text-decoration: none;
             position: relative;
             overflow: hidden;
             transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
             border-radius: 12px 0 12px 0;
+            width: 100%;
         }
 
-        /* Slot Thumbnail Kecil */
+        /* Slot Lingkaran Ikon */
         .thumb-slot {
-            width: 42px;
-            height: 42px;
+            width: 40px;
+            height: 40px;
             border-radius: 50%;
             border: 2px solid rgba(98, 120, 173, 0.4);
-            overflow: hidden;
             flex-shrink: 0;
             background: rgba(0, 0, 0, 0.4);
             display: flex;
             align-items: center;
             justify-content: center;
+            transition: all 0.3s;
         }
 
-        .thumb-slot img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
+        /* Styling Khusus untuk SVG Ikon */
+        .thumb-slot svg {
+            width: 20px;
+            height: 20px;
+            fill: #6278ad; /* Warna ikon default */
+            transition: fill 0.3s, transform 0.3s;
         }
 
-        /* Wadah Teks (Judul + Deskripsi Layanan) */
         .text-container {
             display: flex;
             flex-direction: column;
-            gap: 4px;
+            gap: 2px;
             flex-grow: 1;
+            min-width: 0;
         }
 
-        /* Teks Link Judul Utama */
         .link-text {
             color: #ffffff;
             font-weight: 700;
-            font-size: 15px;
+            font-size: 14px;
             letter-spacing: 0.5px;
             transition: color 0.3s;
         }
 
-        /* Teks Deskripsi Tambahan */
         .link-desc {
             color: #a4b3d6;
             font-size: 11px;
             font-weight: 400;
             line-height: 1.4;
             transition: color 0.3s;
+            word-wrap: break-word;
         }
 
         /* Efek Hover */
@@ -231,12 +240,17 @@
             color: #ffffff;
         }
 
+        /* Efek Hover Ikon SVG */
         .cyber-link:hover .thumb-slot {
             border-color: #ff007f;
             box-shadow: 0 0 8px rgba(255, 0, 127, 0.5);
         }
 
-        /* Garis Dekorasi Samping Tombol */
+        .cyber-link:hover .thumb-slot svg {
+            fill: #ff007f; /* Ikon otomatis berubah pink saat di-hover */
+            transform: scale(1.1);
+        }
+
         .cyber-link::before {
             content: "";
             position: absolute;
@@ -258,11 +272,9 @@
 
     <div class="portal-wrapper">
         <div class="profile-area">
-            <!-- Foto Profil Utama (Kiri) -->
             <div class="avatar-glow">
-                <img src="https://i.imgur.com/TSG2KkY.png" alt="Avatar">
+                <img src="https://imgur.com" alt="Avatar">
             </div>
-            <!-- Informasi Brand (Kanan) -->
             <div class="profile-info">
                 <h1>pakeAIstudio</h1>
                 <div class="status-tag">
@@ -272,40 +284,30 @@
             </div>
         </div>
 
-        <!-- TOMBOL AI PRODUCTION -->
-        <a class="cyber-link" href="https://wa.link/3xr56a" target="_blank">
+        <!-- TOMBOL AI PRODUCTION (Ikon Kepala Robot / AI) -->
+        <a class="cyber-link" href="https://wa.link" target="_blank">
             <div class="thumb-slot">
-                <img src="https://imgur.com" alt="AI">
+                <svg viewBox="0 0 24 24">
+                    <path d="M19,8H17.77A4.27,4.27,0,0,0,16,5.36V3a1,1,0,0,0-2,0V5H10V3A1,1,0,0,0,8,3V5.36A4.27,4.27,0,0,0,6.23,8H5a3,3,0,0,0-3,3v2a3,3,0,0,0,3,3H6.23A4.27,4.27,0,0,0,8,18.64V21a1,1,0,0,0,2,0V19h4v2a1,1,0,0,0,2,0V18.64A4.27,4.27,0,0,0,17.77,16H19a3,3,0,0,0,3-3V11A3,3,0,0,0,19,8ZM20,13a1,1,0,0,1-1,1H17a1,1,0,0,0-1,1,2.29,2.29,0,0,1-4,0,1,1,0,0,0-1-1H5a1,1,0,0,1-1-1V11a1,1,0,0,1,1-1H7a1,1,0,0,0,1-1,2.29,2.29,0,0,1,4,0,1,1,0,0,0,1,1h4a1,1,0,0,1,1,1Z"/>
+                </svg>
             </div>
             <div class="text-container">
                 <span class="link-text">AI Content Production</span>
-                <span class="link-desc">Solusi pembuatan foto & video super cepat tanpa batas ruang menggunakan teknologi kecerdasan buatan.</span>
+                <span class="link-desc">Solusi pembuatan foto & video cepat tanpa batas ruang menggunakan AI.</span>
             </div>
         </a>
         
-        <!-- TOMBOL LIVE SHOT PRODUCTION -->
+        <!-- TOMBOL LIVE SHOT PRODUCTION (Ikon Kamera Sinema) -->
         <a class="cyber-link" href="" target="_blank">
             <div class="thumb-slot">
-                <img src="https://imgur.com" alt="Shoot">
+                <svg viewBox="0 0 24 24">
+                    <path d="M21.53,7.15a1,1,0,0,0-1,0L17,9.38V7a3,3,0,0,0-3-3H4A3,3,0,0,0,1,7V17a3,3,0,0,0,3,3H14a3,3,0,0,0,3-3V14.62l3.55,2.27A1,1,0,0,0,21,17a1,1,0,0,0,.53-.15A1,1,0,0,0,22,16V8A1,1,0,0,0,21.53,7.15ZM15,17a1,1,0,0,1-1,1H4a1,1,0,0,1-1-1V7A1,1,0,0,1,4,6H14a1,1,0,0,1,1,1Zm5-1.15L17,13.92V10.08l3,1.93Z"/>
+                </svg>
             </div>
             <div class="text-container">
                 <span class="link-text">Professional Shot Production</span>
-                <span class="link-desc">Produksi konten premium berstandar tinggi dengan kamera asli, talent nyata, dan pengarahan di lokasi.</span>
+                <span class="link-desc">Produksi konten premium dengan kamera asli dan pengarahan langsung.</span>
             </div>
         </a>
 
-        <!-- TOMBOL APLIKASI -->
-        <a class="cyber-link" href="https://pakeaistudio.com" target="_blank">
-            <div class="thumb-slot">
-                <img src="https://imgur.com" alt="Web">
-            </div>
-            <div class="text-container">
-                <span class="link-text">App Homepage</span>
-                <span class="link-desc">Eksplorasi automasi sistem bisnis, dashboard analitik, dan tools kustom penunjang skala bisnismu.</span>
-            </div>
-        </a>        
-        
-    </div>
-
-</body>
-</html>
+        <!-- TOMBOL APLIKASI (Ikon Website / Bola Dunia) -->
