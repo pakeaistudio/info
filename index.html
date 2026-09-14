@@ -86,7 +86,7 @@
             border-radius: 3px;
         }
 
-        /* Profile Header: Tetap Kiri-Kanan Keren */
+        /* Profile Header: Susunan Kiri-Kanan */
         .profile-area {
             display: flex;
             align-items: center;
@@ -95,26 +95,24 @@
             text-align: left;
         }
 
-/* Logo Area di Sebelah Kiri */
-.avatar-glow {
-    width: 70px;
-    height: 70px;
-    border-radius: 50%;
-    flex-shrink: 0;
-    margin: 0;
-    box-shadow: 0 4px 20px rgba(0, 255, 204, 0.3); 
-    overflow: hidden; /* Mengunci agar logo bulat sempurna */
-    border: 2px solid #6278ad; /* Border siber luar */
-}
+        /* Logo Area di Sebelah Kiri Tanpa Glow */
+        .avatar-glow {
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            flex-shrink: 0;
+            margin: 0;
+            overflow: hidden; 
+            border: 2px solid #6278ad; 
+        }
 
-/* Memperbaiki instruksi gambar agar muncul 100% penuh */
-.avatar-glow img {
-    width: 100% !important;
-    height: 100% !important;
-    display: block !important;
-    object-fit: cover;
-}
-
+        /* Mengunci Gambar Logo Agar Muncul Penuh Tanpa Distorsi */
+        .avatar-glow img {
+            width: 100% !important;
+            height: 100% !important;
+            display: block !important;
+            object-fit: cover;
+        }
 
         .profile-info {
             display: flex;
@@ -181,7 +179,7 @@
             width: 100%;
         }
 
-        /* Slot Lingkaran Ikon */
+        /* Slot Lingkaran Ikon Tombol */
         .thumb-slot {
             width: 40px;
             height: 40px;
@@ -195,7 +193,6 @@
             transition: all 0.3s;
         }
 
-        /* Styling Khusus untuk SVG Ikon di Tombol */
         .thumb-slot svg {
             width: 20px;
             height: 20px;
@@ -228,7 +225,7 @@
             word-wrap: break-word;
         }
 
-        /* Efek Hover */
+        /* Efek Hover Tombol */
         .cyber-link:hover {
             background: rgba(98, 120, 173, 0.08);
             border-color: #00ffcc;
@@ -244,7 +241,6 @@
             color: #ffffff;
         }
 
-        /* Efek Hover Ikon SVG */
         .cyber-link:hover .thumb-slot {
             border-color: #ff007f;
             box-shadow: 0 0 8px rgba(255, 0, 127, 0.5);
@@ -255,7 +251,6 @@
             transform: scale(1.1);
         }
 
-        /* Khusus tombol pertama (WhatsApp) menyala hijau WA saat hover */
         .cyber-link.wa-btn:hover .thumb-slot svg {
             fill: #25D366; 
         }
@@ -281,9 +276,9 @@
 
     <div class="portal-wrapper">
         <div class="profile-area">
-            <!-- FOTO PROFIL UTAMA ANDA KEMBALI SEPERTI SEMULA -->
+            <!-- LOGO BRAND UTAMA DENGAN URL UTUH & REFERRERPOLICY BYPASS -->
             <div class="avatar-glow">
-                <img src="https://imgur.com" alt="Avatar">
+                <img src="https://imgur.com" alt="Avatar" referrerpolicy="no-referrer">
             </div>
             <div class="profile-info">
                 <h1>pakeAIstudio</h1>
@@ -294,7 +289,7 @@
             </div>
         </div>
 
-        <!-- TOMBOL AI PRODUCTION (Ikon WhatsApp Spesifik) -->
+        <!-- TOMBOL AI PRODUCTION (Ikon WhatsApp) -->
         <a class="cyber-link wa-btn" href="https://wa.link" target="_blank">
             <div class="thumb-slot">
                 <svg viewBox="0 0 24 24">
