@@ -180,14 +180,13 @@
             width: 100%;
         }
 
-        /* Slot Lingkaran Ikon Tombol */
+        /* Slot Ikon Tanpa Shape Circle (Murni Ikon Melayang) */
         .thumb-slot {
-            width: 40px;
+            width: 24px;
             height: 40px;
-            border-radius: 50%;
-            border: 2px solid rgba(98, 120, 173, 0.4);
             flex-shrink: 0;
-            background: rgba(0, 0, 0, 0.4);
+            background: none;
+            border: none;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -242,16 +241,12 @@
             color: #ffffff;
         }
 
-        .cyber-link:hover .thumb-slot {
-            border-color: #ff007f;
-            box-shadow: 0 0 8px rgba(255, 0, 127, 0.5);
-        }
-
         .cyber-link:hover .thumb-slot svg {
             fill: #00ffcc; 
             transform: scale(1.1);
         }
 
+        /* Khusus tombol dengan kelas .wa-btn menyala hijau WA saat di-hover */
         .cyber-link.wa-btn:hover .thumb-slot svg {
             fill: #25D366; 
         }
@@ -277,9 +272,9 @@
 
     <div class="portal-wrapper">
         <div class="profile-area">
-            <!-- LOGO UTAMA DENGAN LINK YANG BENAR -->
+            <!-- LOGO UTAMA YANG ASLI -->
             <div class="avatar-glow">
-                <img src="https://i.imgur.com/hqut99Z.png" alt="Avatar">
+                <img src="https://imgur.com" alt="Avatar">
             </div>
             <div class="profile-info">
                 <h1>pakeAIstudio</h1>
@@ -290,7 +285,7 @@
             </div>
         </div>
 
-        <!-- TOMBOL AI PRODUCTION (Ikon WhatsApp) -->
+        <!-- TOMBOL 1: AI PRODUCTION (Ikon WhatsApp Hijau WA) -->
         <a class="cyber-link wa-btn" href="https://wa.link" target="_blank">
             <div class="thumb-slot">
                 <svg viewBox="0 0 24 24">
@@ -303,11 +298,11 @@
             </div>
         </a>
         
-        <!-- TOMBOL LIVE SHOT PRODUCTION -->
-        <a class="cyber-link" href="#" target="_blank">
+         <!-- TOMBOL 2: LIVE SHOT PRODUCTION (Ikon WhatsApp Hijau WA) -->
+        <a class="cyber-link wa-btn" href="#" target="_blank">
             <div class="thumb-slot">
                 <svg viewBox="0 0 24 24">
-                    <path d="M21.53,7.15a1,1,0,0,0-1,0L17,9.38V7a3,3,0,0,0-3-3H4A3,3,0,0,0,1,7V17a3,3,0,0,0,3,3H14a3,3,0,0,0,3-3V14.62l3.55,2.27A1,1,0,0,0,21,17a1,1,0,0,0,.53-.15A1,1,0,0,0,22,16V8A1,1,0,0,0,21.53,7.15ZM15,17a1,1,0,0,1-1,1H4a1,1,0,0,1-1-1V7A1,1,0,0,1,4,6H14a1,1,0,0,1,1,1Zm5-1.15L17,13.92V10.08l3,1.93Z"/>
+                    <path d="M12.012 2c-5.506 0-9.989 4.478-9.99 9.984a9.96 9.96 0 0 0 1.335 4.963L2 22l5.233-1.372a9.948 9.948 0 0 0 4.777 1.218h.004c5.505 0 9.988-4.478 9.989-9.986 0-2.67-1.037-5.178-2.923-7.062A9.925 9.925 0 0 0 12.012 2zm5.474 14.153c-.226.637-1.306 1.212-1.791 1.285-.444.067-.935.12-2.909-.663-2.523-1.002-4.143-3.568-4.269-3.736-.127-.167-.927-1.232-.927-2.35 0-1.118.58-1.667.787-1.894.207-.227.454-.284.606-.284.151 0 .303.001.434.007.136.006.319-.052.499.385.186.449.636 1.554.692 1.667.056.113.093.245.018.396-.075.15-.113.245-.226.377-.113.132-.238.293-.34.405-.113.123-.231.255-.098.483.132.227.587.969 1.26 1.567.868.773 1.599 1.013 1.826 1.126.227.113.36.094.495-.062.135-.157.58-.675.736-.906.155-.23.31-.192.523-.113.213.08.1.349 1.31.947.113.056.188.085.226.151.038.066.038.38-.188 1.017z"/>
                 </svg>
             </div>
             <div class="text-container">
@@ -316,7 +311,7 @@
             </div>
         </a>
 
-        <!-- TOMBOL APP HOMEPAGE -->
+        <!-- TOMBOL 3: APP HOMEPAGE -->
         <a class="cyber-link" href="https://pakeaistudio.com" target="_blank">
             <div class="thumb-slot">
                 <svg viewBox="0 0 24 24">
