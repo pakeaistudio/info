@@ -28,7 +28,7 @@
             position: relative;
         }
 
-        /* Latar Belakang Garis Siber Bergerak (Gak Pasaran) */
+        /* Latar Belakang Garis Siber Bergerak */
         body::before {
             content: "";
             position: absolute;
@@ -58,7 +58,7 @@
             backdrop-filter: blur(12px);
             -webkit-backdrop-filter: blur(12px);
             border: 2px solid #6278ad;
-            border-radius: 24px 0px 24px 0px; /* Sudut asimetris futuristik */
+            border-radius: 24px 0px 24px 0px; 
             padding: 40px 30px;
             box-shadow: 0 0 30px rgba(98, 120, 173, 0.15), inset 0 0 15px rgba(98, 120, 173, 0.05);
         }
@@ -84,7 +84,6 @@
             margin-bottom: 35px;
         }
 
-        /* Thumbnail Utama: Tanpa Border */
         .avatar-glow {
             width: 96px;
             height: 96px;
@@ -146,7 +145,7 @@
             gap: 15px;
             background: rgba(255, 255, 255, 0.03);
             border: 1px solid #6278ad;
-            padding: 14px 18px;
+            padding: 16px 18px;
             margin: 16px 0;
             text-decoration: none;
             position: relative;
@@ -175,13 +174,29 @@
             object-fit: cover;
         }
 
-        /* Teks Link */
-        .link-text {
+        /* Wadah Teks (Judul + Deskripsi) */
+        .text-container {
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
             flex-grow: 1;
+        }
+
+        /* Teks Link Judul Utama */
+        .link-text {
             color: #ffffff;
-            font-weight: 600;
+            font-weight: 700;
             font-size: 15px;
             letter-spacing: 0.5px;
+            transition: color 0.3s;
+        }
+
+        /* Teks Deskripsi Tambahan */
+        .link-desc {
+            color: #a4b3d6;
+            font-size: 11px;
+            font-weight: 400;
+            line-height: 1.4;
             transition: color 0.3s;
         }
 
@@ -195,6 +210,10 @@
 
         .cyber-link:hover .link-text {
             color: #00ffcc;
+        }
+
+        .cyber-link:hover .link-desc {
+            color: #ffffff;
         }
 
         .cyber-link:hover .thumb-slot {
@@ -236,28 +255,37 @@
             </div>
         </div>
 
-        <!-- TOMBOL WHATSAPP -->
+        <!-- TOMBOL AI PRODUCTION -->
         <a class="cyber-link" href="https://wa.link/3xr56a" target="_blank">
             <div class="thumb-slot">
-                <img src="https://imgur.com" alt="WA">
+                <img src="https://imgur.com" alt="AI">
             </div>
-            <span class="link-text">WhatsApp Chat</span>
+            <div class="text-container">
+                <span class="link-text">AI Content Production</span>
+                <span class="link-desc">Solusi pembuatan foto & video super cepat tanpa batas ruang menggunakan teknologi kecerdasan buatan.</span>
+            </div>
         </a>
         
-        <!-- TOMBOL INSTAGRAM -->
-        <a class="cyber-link" href="https://instagram.com" target="_blank">
+        <!-- TOMBOL LIVE SHOT PRODUCTION -->
+        <a class="cyber-link" href="" target="_blank">
             <div class="thumb-slot">
-                <img src="https://imgur.com" alt="IG">
+                <img src="https://imgur.com" alt="Shoot">
             </div>
-            <span class="link-text">Instagram Account</span>
+            <div class="text-container">
+                <span class="link-text">Professional Shot Production</span>
+                <span class="link-desc">Produksi konten premium berstandar tinggi dengan kamera asli, talent nyata, dan pengarahan di lokasi.</span>
+            </div>
         </a>
 
         <!-- TOMBOL APLIKASI -->
         <a class="cyber-link" href="https://pakeaistudio.com" target="_blank">
             <div class="thumb-slot">
-                <img src="https://imgur.com" alt="TT">
+                <img src="https://imgur.com" alt="Web">
             </div>
-            <span class="link-text">App Homepage</span>
+            <div class="text-container">
+                <span class="link-text">App Homepage</span>
+                <span class="link-desc">Eksplorasi automasi sistem bisnis, dashboard analitik, dan tools kustom penunjang skala bisnismu.</span>
+            </div>
         </a>        
         
     </div>
