@@ -223,6 +223,23 @@
             word-wrap: break-word;
         }
 
+         .status-dot {
+            width: 6px;
+            height: 6px;
+            background-color: #ff007f;
+            border-radius: 50%;
+            flex-shrink: 0;
+            margin-top: 5px;
+            box-shadow: 0 0 8px #ff007f;
+            animation: pulse 1.5s infinite;
+        }
+
+        @keyframes pulse {
+            0% { opacity: 0.4; }
+            50% { opacity: 1; }
+            100% { opacity: 0.4; }
+        }
+
         /* Efek Hover Tombol */
         .cyber-link:hover {
             background: rgba(98, 120, 173, 0.08);
