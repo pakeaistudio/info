@@ -31,12 +31,6 @@
             font-family: 'Plus Jakarta Sans', sans-serif;
         }
 
-        html, body {
-            width: 100%;
-            max-width: 100%;
-            overflow-x: hidden; 
-        }
-
         body {
             background: radial-gradient(circle at center, #0a0b10 0%, #030406 100%);
             color: #00ffcc;
@@ -146,6 +140,8 @@
             text-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
             line-height: 1.2;
             white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
             display: inline-flex;
             align-items: center; /* Menjaga titik tegak lurus di tengah teks h1 */
             gap: 8px; /* Jarak antara teks brand dan titik berkedip */
@@ -179,7 +175,6 @@
             margin-top: 4px;
         }
 
-
         /* Tombol Link */
         .cyber-link {
             display: flex;
@@ -211,9 +206,9 @@
         }
 
         .thumb-slot svg {
-            width: 40px;
-            height: 40px;
-            fill:  #25D366; 
+            width: 20px;
+            height: 20px;
+            fill: #6278ad; 
             transition: fill 0.3s, transform 0.3s;
         }
 
@@ -232,7 +227,6 @@
             letter-spacing: 0.5px;
             transition: color 0.3s;
         }
-        
 
         .link-desc {
             color: #a4b3d6;
@@ -292,12 +286,16 @@
         <div class="profile-area">
             <!-- LOGO UTAMA YANG ASLI -->
             <div class="avatar-glow">
-                <img src="https://i.imgur.com/hqut99Z.png" alt="Avatar">
+                <img src="https://imgur.com" alt="Avatar">
             </div>
             <div class="profile-info">
-                <h1>pakeAIstudio</h1><span class="status-dot"></span>
+                <!-- TITIK SEJAJAR HORIZONTAL DI DALAM H1 -->
+                <h1>
+                    pakeAIstudio
+                    <span class="status-dot"></span>
+                </h1>
                 <div class="status-tag">
-                    <span>AI Integrated Native/Custom App & Service</span>
+                    AI Integrated Native/Custom App & Service
                 </div>
             </div>
         </div>
