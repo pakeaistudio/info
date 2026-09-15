@@ -5,10 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>pakeAIstudio</title>
     <style>
-        /* Perbaikan: Mengimpor Font Plus Jakarta Sans dengan URL yang valid */
+        /* Impor Font Plus Jakarta Sans Valid */
         @import url('https://googleapis.com');
 
-        /* Mengunci gerakan samping dan menyembunyikan scrollbar secara ringkas */
+        /* Kunci gerakan samping & hilangkan scrollbar */
         html, body {
             width: 100%;
             max-width: 100%;
@@ -17,13 +17,12 @@
             scrollbar-width: none;     
         }
 
-        /* Menggabungkan selector scrollbar webkit */
         html::-webkit-scrollbar, 
         body::-webkit-scrollbar {
             display: none;
         }
 
-        /* Reset & Base Setup global */
+        /* Reset global (tanpa box-sizing ganda di bawah) */
         * {
             margin: 0;
             padding: 0;
@@ -64,7 +63,7 @@
             100% { transform: translate(0, 40px); }
         }
 
-        /* Container Utama dengan Sudut Asimetris */
+        /* Container Utama Asimetris */
         .portal-wrapper {
             position: relative;
             z-index: 2;
@@ -170,7 +169,7 @@
         .cyber-link {
             display: flex;
             align-items: center;
-            gap: 16px; /* Jarak antara ikon besar dan teks */
+            gap: 16px; 
             background: rgba(255, 255, 255, 0.03);
             border: 1px solid #6278ad;
             padding: 14px 16px;
@@ -200,17 +199,17 @@
             transform: scaleY(1); 
         }
 
-        /* PERUBAHAN: Slot Ikon Diperbesar Mengikuti Tinggi 2 Baris Teks */
+        /* JEBOL KUNCIAN: Slot Ikon Diperbesar & Dikunci Agar Tidak Menciuat */
         .thumb-slot {
-            width: 42px;
-            height: 42px;
-            flex-shrink: 0;
+            width: 44px;         /* Lebar kaku ikon baru */
+            height: 44px;        /* Tinggi kaku ikon baru (setara 2 baris teks) */
+            flex-shrink: 0;      /* Konsekuensi: Memaksa browser tidak menciutkan kotak ikon */
             display: flex;
             align-items: center;
             justify-content: center;
         }
 
-        /* PERUBAHAN: Ukuran Ikon SVG Diperbesar */
+        /* Mengikuti ukuran kontainer thumb-slot yang baru */
         .thumb-slot svg {
             width: 100%;
             height: 100%;
@@ -259,6 +258,7 @@
             color: #ffffff;
         }
 
+        /* Konsekuensi: Skala hover dikecilkan ke 1.05 agar tidak menabrak padding */
         .cyber-link:hover .thumb-slot svg {
             fill: #00ffcc;
             transform: scale(1.05);
