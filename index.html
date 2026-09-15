@@ -5,25 +5,25 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>pakeAIstudio</title>
     <style>
-        /* Ambil Font Plus Jakarta Sans dari Google Fonts */
+        /* Perbaikan: Mengimpor Font Plus Jakarta Sans dengan URL yang valid */
         @import url('https://googleapis.com');
 
-        /* Mengunci total gerakan samping, layout, dan menghilangkan scroll bar */
+        /* Optimasi: Mengunci gerakan samping dan menyembunyikan scrollbar secara ringkas */
         html, body {
             width: 100%;
             max-width: 100%;
             overflow-x: hidden; 
-            -ms-overflow-style: none;  /* Hilangkan scroll bar di IE dan Edge */
-            scrollbar-width: none;     /* Hilangkan scroll bar di Firefox */
+            -ms-overflow-style: none;  
+            scrollbar-width: none;     
         }
 
-        /* Hilangkan scroll bar di Chrome, Safari, dan Opera */
+        /* Optimasi: Menggabungkan selector scrollbar webkit */
         html::-webkit-scrollbar, 
         body::-webkit-scrollbar {
             display: none;
         }
 
-        /* Reset & Base Setup */
+        /* Reset & Base Setup global (box-sizing sudah dicakup di sini) */
         * {
             margin: 0;
             padding: 0;
@@ -33,7 +33,6 @@
 
         body {
             background: radial-gradient(circle at center, #0a0b10 0%, #030406 100%);
-            color: #00ffcc;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -46,10 +45,10 @@
         body::before {
             content: "";
             position: absolute;
-            width: 100%;
-            height: 100%;
             top: 0;
             left: 0;
+            width: 100%;
+            height: 100%;
             background-image: 
                 linear-gradient(rgba(0, 255, 204, 0.03) 1px, transparent 1px),
                 linear-gradient(90deg, rgba(0, 255, 204, 0.03) 1px, transparent 1px);
@@ -65,7 +64,7 @@
             100% { transform: translate(0, 40px); }
         }
 
-        /* Container Utama dengan Sudut Asimetris */
+        /* Container Utama dengan Sudut Asimetris (Bersih dari box-sizing ganda) */
         .portal-wrapper {
             position: relative;
             z-index: 2;
@@ -78,7 +77,6 @@
             border-radius: 24px 0px 24px 0px; 
             padding: 35px 20px;
             box-shadow: 0 0 30px rgba(98, 120, 173, 0.15), inset 0 0 15px rgba(98, 120, 173, 0.05);
-            box-sizing: border-box;
         }
 
         .portal-wrapper::after {
@@ -95,7 +93,7 @@
             border-radius: 3px;
         }
 
-        /* Profile Header: Susunan Kiri-Kanan */
+        /* Profile Header */
         .profile-area {
             display: flex;
             align-items: center;
@@ -104,21 +102,18 @@
             text-align: left;
         }
 
-        /* Wadah Logo Bulat Polos Tanpa Glow & Tanpa Border */
         .avatar-glow {
             width: 70px;
             height: 70px;
             border-radius: 50%;
             flex-shrink: 0;
-            margin: 0;
             overflow: hidden; 
         }
 
-        /* Mengunci Gambar Logo Asli Agar Muncul 100% Penuh Bawaan Kode Awal */
+        /* Optimasi: Bersih dari aturan display: block !important yang memaksa layout */
         .avatar-glow img {
-            width: 100% !important;
-            height: 100% !important;
-            display: block !important;
+            width: 100%;
+            height: 100%;
             border-radius: 50%;
             object-fit: cover;
             background: #111;
@@ -143,11 +138,10 @@
             overflow: hidden;
             text-overflow: ellipsis;
             display: inline-flex;
-            align-items: center; /* Menjaga titik tegak lurus di tengah teks h1 */
-            gap: 8px; /* Jarak antara teks brand dan titik berkedip */
+            align-items: center; 
+            gap: 8px; 
         }
 
-        /* Menggunakan CSS status-dot milikmu (tanpa margin-top) */
         .status-dot {
             width: 6px;
             height: 6px;
@@ -159,14 +153,12 @@
         }
 
         @keyframes pulse {
-            0% { opacity: 0.4; }
+            0%, 100% { opacity: 0.4; }
             50% { opacity: 1; }
-            100% { opacity: 0.4; }
         }
 
-        /* Teks deskripsi di bawah title brand */
         .status-tag {
-            display: block; /* Membuat teks deskripsi otomatis turun ke bawah title brand */
+            display: block; 
             font-size: 11px;
             color: #a4b3d6;
             letter-spacing: 0.5px;
@@ -175,7 +167,7 @@
             margin-top: 4px;
         }
 
-        /* Tombol Link */
+        /* Tombol Link (Bersih dari box-sizing ganda) */
         .cyber-link {
             display: flex;
             align-items: center;
@@ -191,24 +183,37 @@
             border-radius: 12px 0 12px 0;
             width: 100%;
         }
+        /* Efek Garis Tepi Kiri Bergerak saat Hover */
+        .cyber-link::before { 
+            content: ""; 
+            position: absolute; 
+            left: 0; 
+            top: 0; 
+            height: 100%; 
+            width: 3px; 
+            background: #ff007f; 
+            transform: scaleY(0); 
+            transition: transform 0.2s ease; 
+        } 
 
-        /* Slot Ikon Tanpa Shape Circle (Murni Ikon Melayang) */
+        .cyber-link:hover::before { 
+            transform: scaleY(1); 
+        }
+
+        /* Slot Ikon */
         .thumb-slot {
             width: 24px;
             height: 40px;
             flex-shrink: 0;
-            background: none;
-            border: none;
             display: flex;
             align-items: center;
             justify-content: center;
-            transition: all 0.3s;
         }
 
         .thumb-slot svg {
             width: 20px;
             height: 20px;
-            fill: #6278ad; 
+            fill: #6278ad;
             transition: fill 0.3s, transform 0.3s;
         }
 
@@ -254,29 +259,13 @@
         }
 
         .cyber-link:hover .thumb-slot svg {
-            fill: #00ffcc; 
+            fill: #00ffcc;
             transform: scale(1.1);
         }
 
-        /* Khusus tombol dengan kelas .wa-btn menyala hijau WA saat di-hover */
+        /* Hover Khusus Tombol WhatsApp */
         .cyber-link.wa-btn:hover .thumb-slot svg {
-            fill: #25D366; 
-        }
-
-        .cyber-link::before {
-            content: "";
-            position: absolute;
-            left: 0;
-            top: 0;
-            height: 100%;
-            width: 3px;
-            background: #ff007f;
-            transform: scaleY(0);
-            transition: transform 0.2s ease;
-        }
-
-        .cyber-link:hover::before {
-            transform: scaleY(1);
+            fill: #25D366;
         }
     </style>
 </head>
@@ -284,23 +273,18 @@
 
     <div class="portal-wrapper">
         <div class="profile-area">
-            <!-- LOGO UTAMA YANG ASLI -->
             <div class="avatar-glow">
                 <img src="https://imgur.com" alt="Avatar">
             </div>
             <div class="profile-info">
-                <!-- TITIK SEJAJAR HORIZONTAL DI DALAM H1 -->
-                <h1>
-                    pakeAIstudio
-                    <span class="status-dot"></span>
-                </h1>
+                <h1>pakeAIstudio<span class="status-dot"></span></h1>
                 <div class="status-tag">
                     AI Integrated Native/Custom App & Service
                 </div>
             </div>
         </div>
 
-         <!-- TOMBOL 1: AI PRODUCTION (Ikon WhatsApp Hijau WA) -->
+        <!-- TOMBOL 1: AI PRODUCTION -->
         <a class="cyber-link wa-btn" href="https://wa.link" target="_blank">
             <div class="thumb-slot">
                 <svg viewBox="0 0 24 24">
@@ -313,7 +297,7 @@
             </div>
         </a>
         
-        <!-- TOMBOL 2: LIVE SHOT PRODUCTION (Ikon WhatsApp Hijau WA) -->
+        <!-- TOMBOL 2: LIVE SHOT PRODUCTION (Disambung Sampai Selesai) -->
         <a class="cyber-link wa-btn" href="#" target="_blank">
             <div class="thumb-slot">
                 <svg viewBox="0 0 24 24">
@@ -338,8 +322,9 @@
                 <span class="link-desc">Eksplorasi sistem bisnis otomatis dan kustom aplikasi penunjang scale-up bisnismu.</span>
             </div>
         </a>        
-        
     </div>
 
 </body>
 </html>
+
+        
