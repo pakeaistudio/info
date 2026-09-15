@@ -199,23 +199,21 @@
             transform: scaleY(1); 
         }
 
-        /* JEBOL KUNCIAN: Slot Ikon Diperbesar & Dikunci Agar Tidak Menciuat */
-        .thumb-slot {
-            width: 44px;         /* Lebar kaku ikon baru */
-            height: 44px;        /* Tinggi kaku ikon baru (setara 2 baris teks) */
-            flex-shrink: 0;      /* Konsekuensi: Memaksa browser tidak menciutkan kotak ikon */
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
+.thumb-slot {
+    width: 36px;         /* Diubah menjadi persegi 1:1 */
+    height: 36px;        /* Diubah menjadi persegi 1:1 agar lingkaran tidak gepeng */
+    flex-shrink: 0;      /* Mengunci agar browser tidak menciutkan kotak ikon */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
 
-        /* Mengikuti ukuran kontainer thumb-slot yang baru */
-        .thumb-slot svg {
-            width: 100%;
-            height: 100%;
-            fill: #6278ad;
-            transition: fill 0.3s, transform 0.3s;
-        }
+.thumb-slot svg {
+    width: 100%;         /* SVG akan melebar sempurna mengikuti kotak persegi */
+    height: 100%;        /* SVG akan meninggi sempurna mengikuti kotak persegi */
+    fill: #6278ad;
+    transition: fill 0.3s, transform 0.3s;
+}
 
         .text-container {
             display: flex;
