@@ -8,7 +8,7 @@
         /* Perbaikan: Mengimpor Font Plus Jakarta Sans dengan URL yang valid */
         @import url('https://googleapis.com');
 
-        /* Optimasi: Mengunci gerakan samping dan menyembunyikan scrollbar secara ringkas */
+        /* Mengunci gerakan samping dan menyembunyikan scrollbar secara ringkas */
         html, body {
             width: 100%;
             max-width: 100%;
@@ -17,13 +17,13 @@
             scrollbar-width: none;     
         }
 
-        /* Optimasi: Menggabungkan selector scrollbar webkit */
+        /* Menggabungkan selector scrollbar webkit */
         html::-webkit-scrollbar, 
         body::-webkit-scrollbar {
             display: none;
         }
 
-        /* Reset & Base Setup global (box-sizing sudah dicakup di sini) */
+        /* Reset & Base Setup global */
         * {
             margin: 0;
             padding: 0;
@@ -64,7 +64,7 @@
             100% { transform: translate(0, 40px); }
         }
 
-        /* Container Utama dengan Sudut Asimetris (Bersih dari box-sizing ganda) */
+        /* Container Utama dengan Sudut Asimetris */
         .portal-wrapper {
             position: relative;
             z-index: 2;
@@ -110,7 +110,6 @@
             overflow: hidden; 
         }
 
-        /* Optimasi: Bersih dari aturan display: block !important yang memaksa layout */
         .avatar-glow img {
             width: 100%;
             height: 100%;
@@ -167,11 +166,11 @@
             margin-top: 4px;
         }
 
-        /* Tombol Link (Bersih dari box-sizing ganda) */
+        /* Tombol Link */
         .cyber-link {
             display: flex;
             align-items: center;
-            gap: 12px;
+            gap: 16px; /* Jarak antara ikon besar dan teks */
             background: rgba(255, 255, 255, 0.03);
             border: 1px solid #6278ad;
             padding: 14px 16px;
@@ -183,7 +182,8 @@
             border-radius: 12px 0 12px 0;
             width: 100%;
         }
-        /* Efek Garis Tepi Kiri Bergerak saat Hover */
+
+                /* Efek Garis Tepi Kiri Bergerak saat Hover */
         .cyber-link::before { 
             content: ""; 
             position: absolute; 
@@ -200,20 +200,21 @@
             transform: scaleY(1); 
         }
 
-        /* Slot Ikon */
+        /* PERUBAHAN: Slot Ikon Diperbesar Mengikuti Tinggi 2 Baris Teks */
         .thumb-slot {
-            width: 24px;
-            height: 40px;
+            width: 42px;
+            height: 42px;
             flex-shrink: 0;
             display: flex;
             align-items: center;
             justify-content: center;
         }
 
+        /* PERUBAHAN: Ukuran Ikon SVG Diperbesar */
         .thumb-slot svg {
-            width: 400px;
-            height: 400px;
-            fill: #25D366;
+            width: 100%;
+            height: 100%;
+            fill: #6278ad;
             transition: fill 0.3s, transform 0.3s;
         }
 
@@ -260,7 +261,7 @@
 
         .cyber-link:hover .thumb-slot svg {
             fill: #00ffcc;
-            transform: scale(1.1);
+            transform: scale(1.05);
         }
 
         /* Hover Khusus Tombol WhatsApp */
@@ -285,7 +286,7 @@
         </div>
 
         <!-- TOMBOL 1: AI PRODUCTION -->
-        <a class="cyber-link wa-btn" href="https://wa.link/5pqby3" target="_blank">
+        <a class="cyber-link wa-btn" href="https://wa.link" target="_blank">
             <div class="thumb-slot">
                 <svg viewBox="0 0 24 24">
                     <path d="M12.012 2c-5.506 0-9.989 4.478-9.99 9.984a9.96 9.96 0 0 0 1.335 4.963L2 22l5.233-1.372a9.948 9.948 0 0 0 4.777 1.218h.004c5.505 0 9.988-4.478 9.989-9.986 0-2.67-1.037-5.178-2.923-7.062A9.925 9.925 0 0 0 12.012 2zm5.474 14.153c-.226.637-1.306 1.212-1.791 1.285-.444.067-.935.12-2.909-.663-2.523-1.002-4.143-3.568-4.269-3.736-.127-.167-.927-1.232-.927-2.35 0-1.118.58-1.667.787-1.894.207-.227.454-.284.606-.284.151 0 .303.001.434.007.136.006.319-.052.499.385.186.449.636 1.554.692 1.667.056.113.093.245.018.396-.075.15-.113.245-.226.377-.113.132-.238.293-.34.405-.113.123-.231.255-.098.483.132.227.587.969 1.26 1.567.868.773 1.599 1.013 1.826 1.126.227.113.36.094.495-.062.135-.157.58-.675.736-.906.155-.23.31-.192.523-.113.213.08.1.349 1.31.947.113.056.188.085.226.151.038.066.038.38-.188 1.017z"/>
@@ -297,7 +298,7 @@
             </div>
         </a>
         
-        <!-- TOMBOL 2: LIVE SHOT PRODUCTION (Disambung Sampai Selesai) -->
+        <!-- TOMBOL 2: LIVE SHOT PRODUCTION -->
         <a class="cyber-link wa-btn" href="#" target="_blank">
             <div class="thumb-slot">
                 <svg viewBox="0 0 24 24">
@@ -327,4 +328,3 @@
 </body>
 </html>
 
-        
