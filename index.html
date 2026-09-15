@@ -8,6 +8,21 @@
         /* Ambil Font Plus Jakarta Sans dari Google Fonts */
         @import url('https://googleapis.com');
 
+        /* Mengunci total gerakan samping, layout, dan menghilangkan scroll bar */
+        html, body {
+            width: 100%;
+            max-width: 100%;
+            overflow-x: hidden; 
+            -ms-overflow-style: none;  /* Hilangkan scroll bar di IE dan Edge */
+            scrollbar-width: none;     /* Hilangkan scroll bar di Firefox */
+        }
+
+        /* Hilangkan scroll bar di Chrome, Safari, dan Opera */
+        html::-webkit-scrollbar, 
+        body::-webkit-scrollbar {
+            display: none;
+        }
+
         /* Reset & Base Setup */
         * {
             margin: 0;
@@ -146,23 +161,6 @@
             line-height: 1.4;
         }
 
-        .status-dot {
-            width: 6px;
-            height: 6px;
-            background-color: #ff007f;
-            border-radius: 50%;
-            flex-shrink: 0;
-            margin-top: 5px;
-            box-shadow: 0 0 8px #ff007f;
-            animation: pulse 1.5s infinite;
-        }
-
-        @keyframes pulse {
-            0% { opacity: 0.4; }
-            50% { opacity: 1; }
-            100% { opacity: 0.4; }
-        }
-
         /* Tombol Link */
         .cyber-link {
             display: flex;
@@ -194,9 +192,9 @@
         }
 
         .thumb-slot svg {
-            width: 20px;
-            height: 20px;
-            fill: #6278ad; 
+            width: 40px;
+            height: 40px;
+            fill:  #25D366; 
             transition: fill 0.3s, transform 0.3s;
         }
 
